@@ -1,0 +1,555 @@
+<!DOCTYPE html>    
+<html lang="en">    
+<head>    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pracio Portfolio</title>    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+<style>    
+:root{    
+  --primary: #5d54a4;    
+  --accent: #ffb7a1;     
+  --light-peach: #fff5f2; 
+  --lavender: #e0d7ff;
+  --white: #ffffff;    
+  --text: #4a4a4a;    
+  --bg-gradient: linear-gradient(135deg, #ffeadb 0%, #e0d7ff 100%);
+  --section-bg: rgba(255, 255, 255, 0.9);
+}    
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --primary: #a29bfe;    
+  --accent: #ff7675;     
+  --light-peach: #2d3436; 
+  --lavender: #4834d4;
+  --white: #2d3436;    
+  --text: #f5f5f5;    
+  --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+  --section-bg: rgba(45, 52, 54, 0.95);
+}
+    
+/* ===== GLOBAL ===== */    
+body{    
+  font-family: 'Poppins', sans-serif;    
+  margin:0;    
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color:var(--text);    
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
+}    
+    
+h1{    
+  text-align:center;    
+  padding:40px 10px 5px;    
+  color:var(--primary);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}    
+  
+/* ===== DARK MODE TOGGLE ===== */
+.theme-switch-wrapper {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 101;
+}
+
+.theme-switch-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* ===== PROFILE ===== */  
+.profile-container{  
+  display:flex;  
+  justify-content:center;  
+  margin:20px 0;  
+}  
+  
+.profile-wrapper{  
+  padding:6px;  
+  border-radius:50%;  
+  background:linear-gradient(135deg, var(--accent), var(--primary));  
+  box-shadow:0 8px 25px rgba(93, 84, 164, 0.2);  
+  transition:0.3s;  
+}  
+  
+.profile-wrapper:hover{  
+  transform:scale(1.05);  
+}  
+  
+.profile-img{  
+  width:160px;  
+  height:160px;  
+  border-radius:50%;  
+  object-fit:cover;  
+  border:4px solid var(--white);  
+}    
+    
+/* ===== NAV ===== */    
+nav{    
+  background:var(--primary);    
+  text-align:center;    
+  padding:10px;    
+  position:sticky;    
+  top:0;    
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}    
+    
+nav a{    
+  color:white;    
+  text-decoration:none;    
+  margin:0 10px;    
+  padding:8px 15px;    
+  display:inline-block;
+  font-weight: 500;
+  border-radius: 20px;
+  transition: 0.3s;
+}    
+    
+nav a:hover{    
+  background:var(--accent);
+  color: var(--primary);
+}    
+    
+/* ===== SECTION ===== */    
+.section{    
+  background: var(--section-bg); 
+  margin:40px auto;    
+  padding:30px;    
+  width:90%;    
+  max-width:900px;    
+  border-radius:20px;  
+  border:1px solid rgba(255,255,255,0.1);  
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);    
+  transition: background 0.3s ease;
+}    
+    
+/* ===== TITLE WITH ICONS ===== */    
+.title{    
+  font-size:1.6rem;    
+  margin-bottom:20px;    
+  color:var(--primary);    
+  border-left:5px solid var(--accent);    
+  padding-left:15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.title i {
+  color: var(--accent);
+  font-size: 1.4rem;
+}    
+    
+/* ===== PHOTO GRID & BORDER DESIGN ===== */  
+.photo-grid{  
+  display:flex;  
+  flex-wrap:wrap;  
+  gap:25px;  
+  justify-content:center;  
+}  
+  
+.photo-card{  
+  position: relative; 
+  overflow:hidden;  
+  border-radius:15px;  
+  width:220px;  
+  background: var(--white);
+  border: 4px solid var(--white);
+  outline: 2px solid var(--lavender);
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);  
+  transition:0.3s;  
+  cursor: pointer;
+}  
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  width: 15px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 5px;
+  z-index: 5;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+  
+.photo-card img{  
+  width:100%;  
+  height:220px;  
+  object-fit:cover;  
+  display:block;  
+  transition: transform 0.3s ease;
+}  
+  
+.photo-card:hover{  
+  transform:translateY(-5px);
+  outline-color: var(--primary);
+  box-shadow: 0 12px 20px rgba(93, 84, 164, 0.15);
+}
+
+.cert-info {
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  background: var(--white);
+}
+
+.cert-title {
+  font-weight: bold;
+  display: block;
+  color: var(--primary);
+}
+
+.cert-date {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* ===== VIDEO BORDER DESIGN ===== */
+.video-wrapper {
+  position: relative;
+  padding: 8px;
+  background: var(--white);
+  border-radius: 15px;
+  border: 1px solid var(--lavender);
+  box-shadow: 5px 5px 0px var(--accent); 
+  transition: 0.3s;
+  width: 100%;
+  max-width: 300px;
+}
+
+.video-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 8px 8px 0px var(--primary);
+}
+
+iframe{    
+  width: 100%;    
+  height: 180px;    
+  border-radius: 10px;
+  border: none;    
+  display: block;
+}    
+
+/* ===== MODAL STYLE ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(93, 84, 164, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 12px;
+  border: 5px solid white;
+  animation: zoom 0.3s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0.8); opacity: 0;} 
+  to {transform:scale(1); opacity: 1;}
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+    
+/* ===== LINKS CONTAINER ===== */  
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.links-container a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--white);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid var(--lavender);
+  transition: all 0.3s ease;
+}
+
+.links-container a:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(93, 84, 164, 0.2);
+}
+    
+/* ===== CONTACT DESIGN ===== */    
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.contact-item {
+  background: var(--white);
+  padding: 25px 15px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid var(--lavender);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 5px;
+  transition: 0.3s;
+}
+
+.contact-item span {
+  font-weight: 600;
+  display: block;
+  font-size: 1rem;
+}
+
+.contact-item small {
+  color: #888;
+  word-break: break-all;
+}
+
+.contact-item:hover {
+  transform: translateY(-10px);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.contact-item:hover i, 
+.contact-item:hover small {
+  color: var(--accent);
+}
+    
+footer{    
+  text-align:center;    
+  padding:40px;    
+  font-size:14px;
+  color: var(--primary);
+}    
+</style>    
+</head>    
+    
+<body data-theme="light">    
+
+<div class="theme-switch-wrapper">
+  <button class="theme-switch-btn" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+</div>
+    
+<h1>Roxan Pracio Portfolio</h1>    
+  
+<div class="profile-container">  
+  <div class="profile-wrapper">  
+    <img src="IMG_20250811_161506.jpg" alt="Profile" class="profile-img">  
+  </div>  
+</div>  
+    
+<nav>    
+<a href="#about">About</a>    
+<a href="#photos">Project</a> 
+<a href="#videos">Videos</a>    
+<a href="#outputs">Links</a>    
+<a href="#certificate">Certificate</a>    
+<a href="#contact">Contact</a>    
+</nav>    
+    
+<div id="about" class="section">    
+  <div class="title"><i class="fas fa-user-circle"></i> About Me</div>    
+  <div class="about">    
+    <p>Hi! I’m <strong>Roxan L. Pracio</strong>, a <strong>2nd-year IT student</strong> passionate about web development, design, and cybersecurity.</p>    
+    <p>I enjoy building clean and functional digital solutions and continuously learning new technologies.</p>    
+      <a href="https://sg.docworkspace.com/d/sbRaqqeHMU0EsG9l_evcxm3odq74hibwhmr?sa=601.1074" target="_blank">
+      <i class="Download"></i> Download CV
+          </a>   
+  </div>    
+</div>    
+  
+<div id="photos" class="section">  
+  <div class="title"><i class="fas fa-briefcase"></i> My Project</div>  
+  <div class="photo-grid">  
+    <div class="photo-card"><img src="IMG_20260416_131136.jpg" alt="Project 1"></div>  
+    <div class="photo-card"><img src="IMG_20260416_131646.jpg" alt="Project 2"></div>  
+    <div class="photo-card"><img src="IMG_20260416_131839.jpg" alt="Project 3"></div>  
+  </div>  
+</div>  
+    
+<div id="videos" class="section">    
+  <div class="title"><i class="fas fa-video"></i> Learning Videos</div>    
+  <div class="photo-grid"> 
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/61mkx_OV61s" allow="fullscreen" allowfullscreen></iframe>
+    </div>    
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/FaNTVjATYHQ" allow="fullscreen" allowfullscreen></iframe>
+    </div>    
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/jQ1sfKIl50E" allow="fullscreen" allowfullscreen></iframe>
+    </div>    
+  </div>    
+</div>    
+    
+<div id="outputs" class="section">    
+  <div class="title"><i class="fas fa-link"></i> Project Links</div>    
+  <div class="links-container">    
+    <a href="https://www.canva.com/design/DAGv06yLPus/tDpnUoE5lpVHgIXAc6Ng0A/edit" target="_blank">
+        <i class="fas fa-palette"></i> Canva Portfolio
+    </a>    
+    <a href="https://www.figma.com/proto/eqXsGOPhsWPbvrAJYglE0w" target="_blank">
+        <i class="fab fa-figma"></i> Figma Portfolio
+    </a>    
+    <a href="https://www.figma.com/proto/9gDUzjiDpdbhOx8R8NIk77" target="_blank">
+        <i class="fas fa-shopping-cart"></i> Figma E-commerce
+    </a>    
+  </div>    
+</div>    
+    
+<div id="certificate" class="section">    
+  <div class="title"><i class="fas fa-award"></i> Certificates</div>    
+  <div class="photo-grid">  
+    <div class="photo-card">
+      <img src="file_00000000c55471fa89b68385c1afd917.png" alt="Certificate 1">
+      <div class="cert-info">
+        <span class="cert-title">IT Seminar Participation</span>
+        <span class="cert-date">March 05, 2026</span>
+      </div>
+    </div>  
+    <div class="photo-card">
+      <img src="file_00000000afac71fa9b17d6191c33c5d3.png" alt="Certificate 2">
+      <div class="cert-info">
+        <span class="cert-title">Cisco Networking Fundamentals</span>
+        <span class="cert-date">March 12, 2026</span>
+      </div>
+    </div>  
+    <div class="photo-card">
+      <img src="file_00000000fbf471fa8d69541ff2e98b21.png" alt="Certificate 3">
+      <div class="cert-info">
+        <span class="cert-title">Integrative Foundation...</span>
+        <span class="cert-date">March 10, 2026</span>
+      </div>
+    </div>
+  </div>  
+</div>    
+    
+<div id="contact" class="section">    
+  <div class="title"><i class="fas fa-paper-plane"></i> Let's Connect</div>    
+  <div class="contact-grid">
+    <a href="https://www.facebook.com/roxanlopez.pracio" target="_blank" class="contact-item">
+      <i class="fab fa-facebook-f"></i>
+      <span>Facebook</span>
+      <small>Roxan Lopez Pracio</small>
+    </a>
+
+    <a href="mailto:roxanpracio252@gmail.com" class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <span>Email Me</span>
+      <small>roxanpracio252@gmail.com</small>
+    </a>
+
+    <a href="tel:+639101704767" class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span>Phone</span>
+      <small>+63 910 170 4767</small>
+    </a>
+  </div>
+</div>    
+
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="fullImg">
+</div>
+    
+<footer>    
+© 2026 Roxan Pracio Portfolio    
+</footer>    
+
+<script>
+  // Original Image Modal Logic
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("fullImg");
+  const closeBtn = document.getElementsByClassName("close")[0];
+  const allImages = document.querySelectorAll('.photo-card img');
+
+  allImages.forEach(image => {
+    image.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+  });
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Dark Mode Logic
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+  const icon = toggleBtn.querySelector('i');
+
+  toggleBtn.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'light') {
+      body.setAttribute('data-theme', 'dark');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      body.setAttribute('data-theme', 'light');
+      icon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+</script>
+    
+</body>    
+</html>
