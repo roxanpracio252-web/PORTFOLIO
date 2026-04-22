@@ -19,7 +19,6 @@
   --section-bg: rgba(255, 255, 255, 0.9);
 }    
 
-/* Dark Mode Variables */
 [data-theme="dark"] {
   --primary: #a29bfe;    
   --accent: #ff7675;     
@@ -31,7 +30,6 @@
   --section-bg: rgba(45, 52, 54, 0.95);
 }
     
-/* ===== GLOBAL ===== */    
 body{    
   font-family: 'Poppins', sans-serif;    
   margin:0;    
@@ -50,7 +48,6 @@ h1{
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }    
   
-/* ===== DARK MODE TOGGLE ===== */
 .theme-switch-wrapper {
   position: fixed;
   top: 80px;
@@ -70,7 +67,6 @@ h1{
   transition: 0.3s;
 }
 
-/* ===== PROFILE ===== */  
 .profile-container{  
   display:flex;  
   justify-content:center;  
@@ -85,10 +81,6 @@ h1{
   transition:0.3s;  
 }  
   
-.profile-wrapper:hover{  
-  transform:scale(1.05);  
-}  
-  
 .profile-img{  
   width:160px;  
   height:160px;  
@@ -97,7 +89,6 @@ h1{
   border:4px solid var(--white);  
 }    
     
-/* ===== NAV ===== */    
 nav{    
   background:var(--primary);    
   text-align:center;    
@@ -124,7 +115,6 @@ nav a:hover{
   color: var(--primary);
 }    
     
-/* ===== SECTION ===== */    
 .section{    
   background: var(--section-bg); 
   margin:40px auto;    
@@ -134,10 +124,8 @@ nav a:hover{
   border-radius:20px;  
   border:1px solid rgba(255,255,255,0.1);  
   box-shadow:0 10px 30px rgba(0,0,0,0.05);    
-  transition: background 0.3s ease;
 }    
     
-/* ===== TITLE WITH ICONS ===== */    
 .title{    
   font-size:1.6rem;    
   margin-bottom:20px;    
@@ -150,12 +138,44 @@ nav a:hover{
   gap: 12px; 
 }
 
-.title i {
-  color: var(--accent);
-  font-size: 1.4rem;
-}    
-    
-/* ===== PHOTO GRID & BORDER DESIGN ===== */  
+/* FORM STYLES */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-group label {
+  font-weight: 600;
+  color: var(--primary);
+}
+.form-group input, .form-group textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--lavender);
+  background: var(--white);
+  color: var(--text);
+  font-family: inherit;
+}
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.submit-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
 .photo-grid{  
   display:flex;  
   flex-wrap:wrap;  
@@ -176,52 +196,18 @@ nav a:hover{
   cursor: pointer;
 }  
 
-.photo-card::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  right: -5px;
-  width: 15px;
-  height: 40px;
-  background: var(--accent);
-  border-radius: 5px;
-  z-index: 5;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-}
-  
 .photo-card img{  
   width:100%;  
   height:220px;  
   object-fit:cover;  
   display:block;  
-  transition: transform 0.3s ease;
 }  
   
 .photo-card:hover{  
   transform:translateY(-5px);
   outline-color: var(--primary);
-  box-shadow: 0 12px 20px rgba(93, 84, 164, 0.15);
 }
 
-.cert-info {
-  padding: 12px;
-  text-align: center;
-  font-size: 0.9rem;
-  background: var(--white);
-}
-
-.cert-title {
-  font-weight: bold;
-  display: block;
-  color: var(--primary);
-}
-
-.cert-date {
-  color: #888;
-  font-size: 0.8rem;
-}
-
-/* ===== VIDEO BORDER DESIGN ===== */
 .video-wrapper {
   position: relative;
   padding: 8px;
@@ -229,14 +215,8 @@ nav a:hover{
   border-radius: 15px;
   border: 1px solid var(--lavender);
   box-shadow: 5px 5px 0px var(--accent); 
-  transition: 0.3s;
   width: 100%;
   max-width: 300px;
-}
-
-.video-wrapper:hover {
-    transform: scale(1.02);
-    box-shadow: 8px 8px 0px var(--primary);
 }
 
 iframe{    
@@ -244,10 +224,133 @@ iframe{
   height: 180px;    
   border-radius: 10px;
   border: none;    
-  display: block;
 }    
 
-/* ===== MODAL STYLE ===== */
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.links-container a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--white);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid var(--lavender);
+  transition: 0.3s;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.contact-item {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid var(--lavender);
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* CHATBOT STYLES */
+.chat-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-size: 1.5rem;
+}
+
+.chat-window {
+  width: 300px;
+  height: 400px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+  display: none; 
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--lavender);
+}
+
+.chat-header {
+  background: var(--primary);
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-msg {
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  font-size: 0.9rem;
+}
+
+.bot-msg { background: var(--lavender); align-self: flex-start; }
+.user-msg { background: var(--primary); color: white; align-self: flex-end; }
+
+.chat-footer {
+  padding: 10px;
+  display: flex;
+  border-top: 1px solid var(--lavender);
+  background: white;
+}
+
+.chat-footer input {
+  flex: 1;
+  border: 1px solid var(--lavender);
+  padding: 8px;
+  border-radius: 20px;
+  outline: none;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -265,14 +368,6 @@ iframe{
   display: block;
   width: 80%;
   max-width: 700px;
-  border-radius: 12px;
-  border: 5px solid white;
-  animation: zoom 0.3s;
-}
-
-@keyframes zoom {
-  from {transform:scale(0.8); opacity: 0;} 
-  to {transform:scale(1); opacity: 1;}
 }
 
 .close {
@@ -281,91 +376,7 @@ iframe{
   right: 35px;
   color: #fff;
   font-size: 40px;
-  font-weight: bold;
   cursor: pointer;
-}
-    
-/* ===== LINKS CONTAINER ===== */  
-.links-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.links-container a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 15px;
-  background: var(--white);
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 15px;
-  border: 2px solid var(--lavender);
-  transition: all 0.3s ease;
-}
-
-.links-container a:hover {
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(93, 84, 164, 0.2);
-}
-    
-/* ===== CONTACT DESIGN ===== */    
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.contact-item {
-  background: var(--white);
-  padding: 25px 15px;
-  border-radius: 15px;
-  text-align: center;
-  border: 2px solid var(--lavender);
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-decoration: none;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.contact-item i {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 5px;
-  transition: 0.3s;
-}
-
-.contact-item span {
-  font-weight: 600;
-  display: block;
-  font-size: 1rem;
-}
-
-.contact-item small {
-  color: #888;
-  word-break: break-all;
-}
-
-.contact-item:hover {
-  transform: translateY(-10px);
-  background: var(--primary);
-  border-color: var(--primary);
-  color: var(--white);
-}
-
-.contact-item:hover i, 
-.contact-item:hover small {
-  color: var(--accent);
 }
     
 footer{    
@@ -389,7 +400,7 @@ footer{
   
 <div class="profile-container">  
   <div class="profile-wrapper">  
-    <img src="Screenshot_2026-04-16-10-01-12-17_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Profile" class="profile-img">  
+    <img src="/rox/IMG_20250811_161506.jpg" alt="Profile" class="profile-img">  
   </div>  
 </div>  
     
@@ -404,152 +415,163 @@ footer{
     
 <div id="about" class="section">    
   <div class="title"><i class="fas fa-user-circle"></i> About Me</div>    
-  <div class="about">    
-    <p>Hi! I’m <strong>Roxan L. Pracio</strong>, a <strong>2nd-year IT student</strong> passionate about web development, design, and cybersecurity.</p>    
-    <p>I enjoy building clean and functional digital solutions and continuously learning new technologies.</p>    
-      <a href="https://sg.docworkspace.com/d/sbRaqqeHMU0EsG9l_evcxm3odq74hibwhmr?sa=601.1074" target="_blank">
-      <i class="Download"></i> Download CV
-          </a>   
-  </div>    
+  <p>Hi! I’m <strong>Roxan L. Pracio</strong>, a <strong>2nd-year IT student</strong> passionate about web development, design, and cybersecurity.</p>    
+  <a href="https://sg.docworkspace.com/d/sbRaqqeHMU0EsG9l_evcxm3odq74hibwhmr?sa=601.1074" target="_blank" style="text-decoration:none; color:var(--primary); font-weight:bold;">
+    <i class="fas fa-download"></i> Download CV
+  </a>   
 </div>    
   
 <div id="photos" class="section">  
   <div class="title"><i class="fas fa-briefcase"></i> My Project</div>  
   <div class="photo-grid">  
-    <div class="photo-card"><img src="IMG_20260416_131136.jpg" alt="Project 1"></div>  
-    <div class="photo-card"><img src="IMG_20260416_131646.jpg" alt="Project 2"></div>  
-    <div class="photo-card"><img src="IMG_20260416_131839.jpg" alt="Project 3"></div>  
+    <div class="photo-card"><img src="/rox/IMG_20260416_131136.jpg"></div>  
+    <div class="photo-card"><img src="/rox/IMG_20260416_131646.jpg"></div>  
+    <div class="photo-card"><img src="/rox/IMG_20260416_131839.jpg"></div>  
   </div>  
 </div>  
     
 <div id="videos" class="section">    
   <div class="title"><i class="fas fa-video"></i> Learning Videos</div>    
   <div class="photo-grid"> 
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/61mkx_OV61s" allow="fullscreen" allowfullscreen></iframe>
-    </div>    
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/FaNTVjATYHQ" allow="fullscreen" allowfullscreen></iframe>
-    </div>    
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/jQ1sfKIl50E" allow="fullscreen" allowfullscreen></iframe>
-    </div>    
+    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/61mkx_OV61s" allowfullscreen></iframe></div>    
+    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/FaNTVjATYHQ" allowfullscreen></iframe></div>    
+    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/jQ1sfKIl50E" allowfullscreen></iframe></div>    
   </div>    
 </div>    
     
 <div id="outputs" class="section">    
   <div class="title"><i class="fas fa-link"></i> Project Links</div>    
   <div class="links-container">    
-    <a href="https://www.canva.com/design/DAGv06yLPus/tDpnUoE5lpVHgIXAc6Ng0A/edit" target="_blank">
-        <i class="fas fa-palette"></i> Canva Portfolio
-    </a>    
-    <a href="https://www.figma.com/proto/eqXsGOPhsWPbvrAJYglE0w" target="_blank">
-        <i class="fab fa-figma"></i> Figma Portfolio
-    </a>    
-    <a href="https://www.figma.com/proto/9gDUzjiDpdbhOx8R8NIk77" target="_blank">
-        <i class="fas fa-shopping-cart"></i> Figma E-commerce
-    </a>    
+    <a href="https://www.canva.com/design/DAGv06yLPus/tDpnUoE5lpVHgIXAc6Ng0A/edit" target="_blank"><i class="fas fa-palette"></i> Canva Portfolio</a>    
+    <a href="https://www.figma.com/proto/eqXsGOPhsWPbvrAJYglE0w" target="_blank"><i class="fab fa-figma"></i> Figma Portfolio</a>    
+    <a href="https://www.figma.com/proto/9gDUzjiDpdbhOx8R8NIk77" target="_blank"><i class="fas fa-shopping-cart"></i> Figma E-commerce</a>    
   </div>    
 </div>    
     
 <div id="certificate" class="section">    
   <div class="title"><i class="fas fa-award"></i> Certificates</div>    
   <div class="photo-grid">  
-    <div class="photo-card">
-      <img src="file_00000000c55471fa89b68385c1afd917.png" alt="Certificate 1">
-      <div class="cert-info">
-        <span class="cert-title">IT Seminar Participation</span>
-        <span class="cert-date">March 05, 2026</span>
-      </div>
-    </div>  
-    <div class="photo-card">
-      <img src="file_00000000afac71fa9b17d6191c33c5d3.png" alt="Certificate 2">
-      <div class="cert-info">
-        <span class="cert-title">Cisco Networking Fundamentals</span>
-        <span class="cert-date">March 12, 2026</span>
-      </div>
-    </div>  
-    <div class="photo-card">
-      <img src="file_00000000fbf471fa8d69541ff2e98b21.png" alt="Certificate 3">
-      <div class="cert-info">
-        <span class="cert-title">Integrative Foundation...</span>
-        <span class="cert-date">March 10, 2026</span>
-      </div>
-    </div>
+    <div class="photo-card"><img src="/rox/file_00000000c55471fa89b68385c1afd917.png"></div>  
+    <div class="photo-card"><img src="/rox/file_00000000afac71fa9b17d6191c33c5d3.png"></div>  
+    <div class="photo-card"><img src="/rox/file_00000000fbf471fa8d69541ff2e98b21.png"></div>
   </div>  
 </div>    
-    
+
 <div id="contact" class="section">    
   <div class="title"><i class="fas fa-paper-plane"></i> Let's Connect</div>    
   <div class="contact-grid">
     <a href="https://www.facebook.com/roxanlopez.pracio" target="_blank" class="contact-item">
-      <i class="fab fa-facebook-f"></i>
-      <span>Facebook</span>
-      <small>Roxan Lopez Pracio</small>
+      <i class="fab fa-facebook-f" style="color: #1877F2; font-size: 2rem; margin-bottom: 10px;"></i>
+      <span style="font-weight: 600;">Facebook</span>
+    </a>
+    
+    <a href="https://www.instagram.com/roxan_cakes" target="_blank" class="contact-item">
+      <i class="fab fa-instagram" style="color: #E4405F; font-size: 2rem; margin-bottom: 10px;"></i>
+      <span style="font-weight: 600;">Instagram</span>
     </a>
 
     <a href="mailto:roxanpracio252@gmail.com" class="contact-item">
-      <i class="fas fa-envelope"></i>
-      <span>Email Me</span>
-      <small>roxanpracio252@gmail.com</small>
+      <i class="fas fa-envelope" style="color: #EA4335; font-size: 2rem; margin-bottom: 10px;"></i>
+      <span style="font-weight: 600;">Email Me</span>
     </a>
 
     <a href="tel:+639101704767" class="contact-item">
-      <i class="fas fa-phone-alt"></i>
-      <span>Phone</span>
-      <small>+63 910 170 4767</small>
+      <i class="fas fa-phone-alt" style="color: #34A853; font-size: 2rem; margin-bottom: 10px;"></i>
+      <span style="font-weight: 600;">Call Me</span>
     </a>
   </div>
 </div>    
+
+<div class="section">
+  <div class="title"><i class="fas fa-envelope-open-text"></i> Message Me Directly</div>
+  <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent to Roxan!');">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea rows="4" placeholder="How can I help you today?" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+  </form>
+</div>
+
+<div class="chat-wrapper">
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <span><i class="fas fa-robot"></i> Assistant</span>
+      <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer"></i>
+    </div>
+    <div class="chat-body" id="chat-content">
+      <div class="chat-msg bot-msg">Hi! I'm Roxan's assistant. Ask me about her business, projects, or school!</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+      <button onclick="sendMessage()" style="border:none; background:none; color:var(--primary); cursor:pointer">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  <button class="chat-btn" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+</div>
 
 <div id="imgModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="fullImg">
 </div>
     
-<footer>    
-© 2026 Roxan Pracio Portfolio    
-</footer>    
+<footer>© 2026 Roxan Pracio Portfolio</footer>    
 
 <script>
-  // Original Image Modal Logic
+  function toggleChat() {
+    const win = document.getElementById('chat-window');
+    win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const content = document.getElementById('chat-content');
+    const text = input.value.trim();
+    if (!text) return;
+
+    const userDiv = document.createElement('div');
+    userDiv.className = 'chat-msg user-msg';
+    userDiv.innerText = text;
+    content.appendChild(userDiv);
+    const query = text.toLowerCase();
+    input.value = '';
+    content.scrollTop = content.scrollHeight;
+
+    setTimeout(() => {
+      const botDiv = document.createElement('div');
+      botDiv.className = 'chat-msg bot-msg';
+      if (query.includes("who") || query.includes("roxan")) botDiv.innerText = "Roxan L. Pracio is a 2nd-year IT student and owner of Roxan Cakes!";
+      else if (query.includes("cakes") || query.includes("shop")) botDiv.innerText = "She owns Roxan Cakes in Moises Padilla!";
+      else if (query.includes("project")) botDiv.innerText = "Check the Project section for her IT and UI/UX work!";
+      else botDiv.innerText = "I'm here to help! Ask about cakes, school, or projects.";
+      content.appendChild(botDiv);
+      content.scrollTop = content.scrollHeight;
+    }, 600);
+  }
+
   const modal = document.getElementById("imgModal");
   const modalImg = document.getElementById("fullImg");
-  const closeBtn = document.getElementsByClassName("close")[0];
-  const allImages = document.querySelectorAll('.photo-card img');
-
-  allImages.forEach(image => {
-    image.onclick = function() {
-      modal.style.display = "block";
-      modalImg.src = this.src;
-    }
+  document.querySelectorAll('.photo-card img').forEach(img => {
+    img.onclick = () => { modal.style.display = "block"; modalImg.src = img.src; }
   });
+  document.querySelector(".close").onclick = () => modal.style.display = "none";
 
-  closeBtn.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Dark Mode Logic
   const toggleBtn = document.getElementById('theme-toggle');
-  const body = document.body;
-  const icon = toggleBtn.querySelector('i');
-
-  toggleBtn.addEventListener('click', () => {
-    if (body.getAttribute('data-theme') === 'light') {
-      body.setAttribute('data-theme', 'dark');
-      icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      body.setAttribute('data-theme', 'light');
-      icon.classList.replace('fa-sun', 'fa-moon');
-    }
-  });
-</script>
-    
+  toggleBtn.onclick = () => {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    toggleBtn.innerHTML = isDark ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+  };
+</script>    
 </body>    
-</html>
+    </html>
